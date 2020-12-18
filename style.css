@@ -7,7 +7,9 @@
 
 html, body {
   font-family: Quicksand,sans-serif !important;
-  background: #214252;
+  /* background: #213e3b; */
+  background: url('background.jpg');
+  background-size: cover;
 }
 
 input {
@@ -24,7 +26,7 @@ input {
 .card {
   display: flex;
   height: auto;
-  margin-top: 50px !important;
+  margin-top: 30px !important;
   width: auto;
 }
 
@@ -38,7 +40,26 @@ input {
   padding-bottom: 12px;
 }
 
+.card-body-input {
+  background: #EBECF0;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 5px;
+  margin: 0;
+  /* padding: 0 10px 15px; */
+  text-align: center;
+  width: 25%;
+  min-width: 230px;
+  height: max-content;
+  min-height: 147px;
+}
+
+.card-body-card:hover {
+  border: 2px solid rgba(236, 0, 0, 0.781);
+  width: auto;
+}
+
 .card-body {
+  position: relative;
   background: #EBECF0;
   border: 1px solid rgba(0,0,0,.125);
   border-radius: 5px;
@@ -88,13 +109,34 @@ input {
 
 /* end card */
 
+.button-action {
+  position: absolute;
+  right: 19px;
+}
 
 .button-trash {
   border-radius: 3px;
-  /* opacity: .8; */
-  margin-left: auto;
+  margin-left: 10px;
   background-color: #f4f5f7;
   padding: 3px;
+  max-height: 26px;
+}
+
+.button-pencil {
+  border-radius: 3px;
+  margin-left: 1px;
+  background-color: #f4f5f7;
+  padding: 3px;
+  max-height: 26px;
+}
+
+.form-control-edit {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  font-size: 0.8em;
+  width: 100%;
 }
 
 .form-control {
@@ -130,6 +172,15 @@ input {
 
 
 .text-center {
+  text-align: center;
+}
+
+.center {
+  display: block;
+  margin-top: 15px !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
   text-align: center;
 }
 
@@ -205,6 +256,10 @@ input {
 .bg-light {
   background-color: #f8f9fa!important;
 }
+
+.bg-dark {
+  color: #343a40 !important;
+}
 /* end background color */
 
 /* border top color */
@@ -234,6 +289,10 @@ input {
 
 .brd-t-light {
   border-top: 5px solid #f8f9fa!important;
+}
+
+.brd-t-dark {
+  border-top: 5px solid #343a40 !important;
 }
 
 /* end border top color */
@@ -273,7 +332,8 @@ input {
 }
 
 .logo {
-  font-size: 20pt;
+  font-size: 63pt;
+  width: 100%;
 }
 
 span {

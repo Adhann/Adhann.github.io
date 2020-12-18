@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  
+
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
   <title>Document</title>
 </head>
@@ -30,60 +30,84 @@
       </ul>
     </nav>
   </header> -->
+
+  <!-- <div class="card center">   
+    <div class="card-body-input text-center" id="#">
+      <div class="card-header brd-t-primary">
+        <h3 class="text-center m-0">Edit</h3>
+      </div>
+      <div class="card-input text-center">
+        <input type="text" class="form-control" id="card-id" placeholder="title" hidden>
+        <input type="text" class="form-control-edit" id="backlog-title" placeholder="title">
+        <input type="text" class="form-control-edit" id="backlog-description" placeholder="description">
+        
+        <button class="btn-add bg-success text-center" onclick="edit()">Edit</button>
+      </div>
+    </div>
+  </div> -->
   
-  <div class="card col-3">   
+    <header><h1 class="logo text-center text-info">Todo <span>List.</span></h1></header>
+    <div id="edit-content"></div>
+    
+    
+    <div class="card col-3">
     <div class="card-body" id="myBacklog">
       <div class="card-header brd-t-danger">
         <h3 class="text-center m-0">Backlog</h3>
       </div>
-      
+
       <div class="card-input">
         <!-- <input type="text" class="form-control" id="card-id" placeholder="title" hidden> -->
         <input type="text" class="form-control" id="backlog-title" placeholder="title">
         <input type="text" class="form-control" id="backlog-description" placeholder="description">
-        
+
         <button class="btn-add bg-success text-center" onclick="add()">Add</button>
       </div>
       <div id="backlog-content"></div>
     </div>
-    
+
     <div class="card-body" id="myTodo">
       <div class="card-header brd-t-warning">
         <h3 class="text-center m-0">Todo</h3>
       </div>
-      
     </div>
-    
+
     <div class="card-body" id="myDoing">
       <div class="card-header brd-t-info">
         <h3 class="text-center m-0">Doing</h3>
       </div>
-      <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+      <!-- <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
         <div class="card-body-card" id="card99">
           <h4 class="card-title text-danger">Title
-            <button onclick="myDelete(99)" class="button-trash"><i class="fas fa-trash-alt text-danger" title="Delete"></i>
-            </button>
+            <div class="button-action">
+              <button onclick="myDelete(99)" class="button-trash"><i class="fas fa-trash-alt text-danger"
+                title="Delete"></i>
+              </button>
+              <button onclick="myEdit(99)" class="button-pencil">
+                <i class="fas fa-pencil-alt text-success" title="Edit"></i>
+              </button>
+            </div>
           </h4>
           <p class="card-text">yeyeye</p>
           <p class="text-date">At 12/17/2020, 22:41:09</p>
         </div>
-      </div>
+      </div> -->
     </div>
-    
+
     <div class="card-body" id="myDone">
       <div class="card-header brd-t-success">
         <h3 class="text-center m-0">Done</h3>
       </div>
     </div>
-    
-    
+
+
     <div id="category-content"></div>
   </div>
-  
-  
-  
+
+
+
   <script>
-    
+
   </script>
   <script src="apps.js"></script>
 </body>

@@ -81,6 +81,35 @@ document.addEventListener("drop", function( event ) {
   
 }, false);
   
+function renderEdit(id) {
+  let edit_content = document.getElementById('edit-content')
+  edit_content.innerHTML = ''
+  
+  for (let i = 0; i < backlog.length; i++) {
+    console.log(backlog[i].id, id);
+    if (backlog[i].id === id) {
+      let input = `
+      <div class="card center" id="card-edit${backlog[i].id}">   
+        <div class="card-body-input text-center" id="">
+          <div class="card-header brd-t-primary">
+            <h3 class="text-center m-0">Edit</h3>
+          </div>
+          <div class="card-input text-center">
+            <input type="text" class="form-control" id="card-id${backlog[i].id}" placeholder="title" hidden>
+            <input type="text" class="form-control-edit" id="backlog-title-edit" placeholder="" value="${backlog[i].title}">
+            <input type="text" class="form-control-edit" id="backlog-description-edit" placeholder="" value="${backlog[i].description}">
+            <button class="btn-add bg-success text-center" onclick="edit(${backlog[i].id})">Edit</button>
+          </div>
+        </div>
+      </div>`
+      
+      edit_content.innerHTML += input
+      // break
+    }
+  }
+}
+
+
 function renderBacklog() {
   let backlog_content = document.getElementById('backlog-content')
   backlog_content.innerHTML = ''
@@ -90,9 +119,14 @@ function renderBacklog() {
     <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
       <div class="card-body-card" id="card${backlog[i].id}">
         <h4 class="card-title text-danger">${backlog[i].title}
+          <div class="button-action">
           <button onclick="myDelete(${backlog[i].id})" class="button-trash">
-            <i class="fas fa-trash-alt text-danger" title="Delete"></i>
+          <i class="fas fa-trash-alt text-danger" title="Delete"></i>
           </button>
+          <button onclick="myEdit(${backlog[i].id})" class="button-pencil">
+          <i class="fas fa-pencil-alt text-success" title="Edit"></i>
+          </button>
+          </div>
         </h4>
         <p class="card-text">${backlog[i].description}</p>
         <p class="text-date">${backlog[i].datetime}</p>
@@ -105,10 +139,37 @@ function renderBacklog() {
 
 renderBacklog()
 
+function edit(id) {
+  let removeId = document.getElementById(`card${id}`)
+  removeId.remove();
+  backlog.splice(id)
+
+  let title = document.getElementById('backlog-title-edit').value
+  let description = document.getElementById('backlog-description-edit').value
+
+  if (title === '') {
+    alert('title tidak boleh kosong')
+  } else if (description === ''){
+    alert('description tidak boleh kosong')
+  }
+  
+  if (title && description) {
+    backlog.push({
+      id : id,
+      title: title,
+      description: description,
+      datetime : datetime
+    })
+    renderBacklog()
+    let removeCardEdit = document.getElementById(`card-edit${id}`)
+    removeCardEdit.remove();
+    alert('Berhasil Edit Data')
+  }
+}
+
 function add() {
   let title = document.getElementById('backlog-title').value
   let description = document.getElementById('backlog-description').value
-  // alert(valColor)
 
   let id = backlog.length;
   if (title === '') {
@@ -129,9 +190,17 @@ function add() {
 }
 
 function myDelete(id) {
-  var myobj = document.getElementById(`card${id}`);
+  let myobj = document.getElementById(`card${id}`);
   myobj.remove();
   backlog.splice(id)
+}
+
+function myEdit(id) {
+  // var myobj = document.getElementById(`card${id}`);
+  // myobj.remove();
+  // backlog.splice(id)
+  renderEdit(id)
+
 }
 
 // function renderCategory() {
