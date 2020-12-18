@@ -10,14 +10,6 @@ var scd = datetime.getSeconds();
 datetime = `${mm}/${dd}/${yyyy}, ${hrs}:${mnt}:${scd}`;
 
 
-var arrCategory = [
-  {
-    id: 0,
-    category: 'Front-End dashboard',
-    valColor: 'brd-t-warning'
-  }
-]
-
 var backlog = [
   {
     id: 0,
@@ -34,7 +26,6 @@ var backlog = [
 ]
 
 // drag n drop 
-
 var dragged;
 
 /* events fired on the draggable target */
@@ -86,7 +77,7 @@ function renderEdit(id) {
   edit_content.innerHTML = ''
   
   for (let i = 0; i < backlog.length; i++) {
-    console.log(backlog[i].id, id);
+    // console.log(backlog[i].id, id);
     if (backlog[i].id === id) {
       let input = `
       <div class="card center" id="card-edit${backlog[i].id}">   
@@ -109,11 +100,9 @@ function renderEdit(id) {
   }
 }
 
-
 function renderBacklog() {
   let backlog_content = document.getElementById('backlog-content')
   backlog_content.innerHTML = ''
-  
   for (let i = 0; i < backlog.length; i++) {
     let input = `
     <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
@@ -140,20 +129,21 @@ function renderBacklog() {
 renderBacklog()
 
 function edit(id) {
-  let removeId = document.getElementById(`card${id}`)
-  removeId.remove();
-  backlog.splice(id)
-
+  console.log(id);
   let title = document.getElementById('backlog-title-edit').value
   let description = document.getElementById('backlog-description-edit').value
-
+  let removeId = document.getElementById(`card${id}`)
+  let removeCardEdit = document.getElementById(`card-edit${id}`)
+  
   if (title === '') {
-    alert('title tidak boleh kosong')
+    alert('Title tidak boleh kosong')
   } else if (description === ''){
-    alert('description tidak boleh kosong')
+    alert('Description tidak boleh kosong')
   }
   
   if (title && description) {
+    backlog.splice(id)
+    removeId.remove()
     backlog.push({
       id : id,
       title: title,
@@ -161,7 +151,6 @@ function edit(id) {
       datetime : datetime
     })
     renderBacklog()
-    let removeCardEdit = document.getElementById(`card-edit${id}`)
     removeCardEdit.remove();
     alert('Berhasil Edit Data')
   }
@@ -173,9 +162,9 @@ function add() {
 
   let id = backlog.length;
   if (title === '') {
-    alert('title tidak boleh kosong')
+    alert('Title tidak boleh kosong')
   } else if (description === ''){
-    alert('description tidak boleh kosong')
+    alert('Description tidak boleh kosong')
   }
 
   if (title && description) {
@@ -196,50 +185,6 @@ function myDelete(id) {
 }
 
 function myEdit(id) {
-  // var myobj = document.getElementById(`card${id}`);
-  // myobj.remove();
-  // backlog.splice(id)
   renderEdit(id)
-
 }
-
-// function renderCategory() {
-//   let category_content = document.getElementById('category-content')
-//   category_content.innerHTML = ''
-  
-//   for (let i = 0; i < arrCategory.length; i++) {
-//     let input = `
-//     <div class="card-body" id="myCategory${arrCategory[i].id}">
-//       <div class="card-header brd-t-info">
-//         <h3 class="text-center m-0">${arrCategory[i].category}</h3>
-//       </div>
-//     </div>`
-    
-//     category_content.innerHTML += input
-//   }
-// }
-
-// renderCategory()
-
-// function addCategory() {
-//   let category = document.getElementById('category').value
-//   let idxColor = document.getElementById('select-input-color').selectedIndex
-//   let valColor = document.getElementsByTagName("option")[idxColor].value
-//   // alert(valColor)
-//   let id = arrCategory.length;
-//   if (category === '') {
-//     alert('category tidak boleh kosong')
-//   } else if (valColor === '') {
-//     alert('pilih label warna')
-//   }
-
-//   if (category && valColor) {
-//     arrCategory.push({
-//       id : id,
-//       category: category,
-//       valColor : valColor
-//     })
-//     renderCategory()
-//   }
-// }
 

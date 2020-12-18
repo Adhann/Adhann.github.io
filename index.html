@@ -4,52 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="h8_favicon.png">
   <link rel="stylesheet" href="style.css">
-
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-  <title>Document</title>
+  <title>Todo-List.</title>
 </head>
 
 <body>
-  <!-- <header>
-    <nav class="navbar">
-      <div class="logo"><a href="">Kan<span>ban.</span></a></div>
-      <div class="input-nav">
-        <input type="text" id="category" class="form-control input-category">
-        <select type="text" id="select-input-color" class="" onchange="this.className=this.options[this.selectedIndex].className">
-          <option selected>Pilih warna</option>
-          <option class="bg-danger" value="brd-t-danger"></option>
-          <option class="bg-info" value="brd-t-info"></option>
-          <option class="bg-warning" value="brd-t-warning"></option>
-        </select>
-        <button class="btn-add-category bg-success text-center" onclick="addCategory()">Add</button>
-      </div>
-      <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </header> -->
-
-  <!-- <div class="card center">   
-    <div class="card-body-input text-center" id="#">
-      <div class="card-header brd-t-primary">
-        <h3 class="text-center m-0">Edit</h3>
-      </div>
-      <div class="card-input text-center">
-        <input type="text" class="form-control" id="card-id" placeholder="title" hidden>
-        <input type="text" class="form-control-edit" id="backlog-title" placeholder="title">
-        <input type="text" class="form-control-edit" id="backlog-description" placeholder="description">
-        
-        <button class="btn-add bg-success text-center" onclick="edit()">Edit</button>
-      </div>
-    </div>
-  </div> -->
-  
+   
     <header><h1 class="logo text-center text-info">Todo <span>List.</span></h1></header>
     <div id="edit-content"></div>
-    
-    
+        
     <div class="card col-3">
     <div class="card-body" id="myBacklog">
       <div class="card-header brd-t-danger">
@@ -76,22 +41,6 @@
       <div class="card-header brd-t-info">
         <h3 class="text-center m-0">Doing</h3>
       </div>
-      <!-- <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
-        <div class="card-body-card" id="card99">
-          <h4 class="card-title text-danger">Title
-            <div class="button-action">
-              <button onclick="myDelete(99)" class="button-trash"><i class="fas fa-trash-alt text-danger"
-                title="Delete"></i>
-              </button>
-              <button onclick="myEdit(99)" class="button-pencil">
-                <i class="fas fa-pencil-alt text-success" title="Edit"></i>
-              </button>
-            </div>
-          </h4>
-          <p class="card-text">yeyeye</p>
-          <p class="text-date">At 12/17/2020, 22:41:09</p>
-        </div>
-      </div> -->
     </div>
 
     <div class="card-body" id="myDone">
@@ -100,16 +49,9 @@
       </div>
     </div>
 
-
     <div id="category-content"></div>
+
   </div>
-
-
-
-  <script>
-
-  </script>
   <script src="apps.js"></script>
 </body>
-
 </html>

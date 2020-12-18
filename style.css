@@ -7,7 +7,7 @@
 
 html, body {
   font-family: Quicksand,sans-serif !important;
-  /* background: #213e3b; */
+  /* background: #1b262c; */
   background: url('background.jpg');
   background-size: cover;
 }
@@ -190,10 +190,6 @@ input {
   font-weight: bold !important;
 }
 
-/* h1, h2, h3, h4, h5, h6 {
-  font-family: Quicksand, sans-serif !important;
-} */
-
 .m-0 {
   margin: 0;
 } 
@@ -311,26 +307,6 @@ input {
   border: 2px solid black;
 }
 
-
-.navbar {
-  display: flex;
-  padding: 15px 50px;
-  width: 100%;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.input-nav {
-  display: flex;
-  width: 100%;
-  margin-left: 25px;
-}
-
-.input-category {
-  margin: 10px 10px;
-  width: 130px;
-}
-
 .logo {
   font-size: 63pt;
   width: 100%;
@@ -338,26 +314,4 @@ input {
 
 span {
   color: #fdb827;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-.navbar .menu li{
-  list-style: none;
-  display: inline-block;
-}
-
-.navbar .menu li a{
-  color: white;
-  margin-left: 30px;
-  font-size: 20px;
-  margin-left: 50px;
-}
-
-.navbar .menu li a:hover{
-  color: #fdb827;
-  text-decoration: underline;
 }
