@@ -129,7 +129,7 @@ function renderBacklog() {
 renderBacklog()
 
 function edit(id) {
-  console.log(id);
+  console.log(backlog[id]);
   let title = document.getElementById('backlog-title-edit').value
   let description = document.getElementById('backlog-description-edit').value
   let removeId = document.getElementById(`card${id}`)
@@ -142,16 +142,19 @@ function edit(id) {
   }
   
   if (title && description) {
-    backlog.splice(id)
     removeId.remove()
-    backlog.push({
-      id : id,
-      title: title,
-      description: description,
-      datetime : datetime
-    })
+    for (let i = 0; i < backlog.length; i++) {
+      for (const key in backlog[i]) {
+        if (backlog[i].id === id) {
+          backlog[i].title = title
+          backlog[i].description = description
+          backlog[i].datetime = datetime
+          break
+        }
+      }
+    }
     renderBacklog()
-    removeCardEdit.remove();
+    removeCardEdit.remove()
     alert('Berhasil Edit Data')
   }
 }
@@ -181,7 +184,7 @@ function add() {
 function myDelete(id) {
   let myobj = document.getElementById(`card${id}`);
   myobj.remove();
-  backlog.splice(id)
+  backlog.splice(id, 1)
 }
 
 function myEdit(id) {
